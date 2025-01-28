@@ -1616,9 +1616,4 @@ def show_calendar():
 '''
 Run the flask app on port 5144
 '''
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 5145))
-    app.run(host="0.0.0.0", port=port, debug=True, use_reloader=False)
-    #app.run(host="0.0.0.0", port=5145, debug=True, use_reloader = False)
-   # app.run(debug=True, use_reloader=False)
 
