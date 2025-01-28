@@ -1,4 +1,5 @@
 # UMRA SAN DOK SAN NAPISA SVE KOMENTARE 
+# AKO NI METODE, ONDA JE METODA GET
 # iz fajla imports importamo sve (to san napravija da niman 50 linija importova na vrhu)
 from imports import *
 
@@ -1131,7 +1132,7 @@ def get_weather_forecast(api_key, location="your_city"):
 
 # provjera dali sadrži bad weather keywordse i vraćanje pripadne poruke
 def predict_absence_due_to_weather(weather_condition):
-    bad_weather_keywords = ["rain", "storm", "snow", "fog", "hurricane"]
+    bad_weather_keywords = ["rain", "storm", "snow", "fog", "hurricane", "blizzard","tornado","sandstorm"]
     for keyword in bad_weather_keywords:
         if keyword in weather_condition.lower():
             return True
@@ -1616,6 +1617,8 @@ def show_calendar():
 Run the flask app on port 5144
 '''
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5145, debug=True, use_reloader = False)
+    port = int(os.getenv("PORT", 5145))
+    app.run(host="0.0.0.0", port=port, debug=True, use_reloader=False)
+    #app.run(host="0.0.0.0", port=5145, debug=True, use_reloader = False)
    # app.run(debug=True, use_reloader=False)
 
